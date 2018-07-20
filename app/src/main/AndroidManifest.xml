@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.socialhelp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <receiver android:name=".services.OutgoingCallReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+        </intent-filter>
+    </receiver>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WhatsappActivity"
+            android:label="Whatsapp Help"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".FacebookActivity"
+            android:label="Facebook Help"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".StepsActivity"
+            android:label="Steps"
+            android:parentActivityName=".WhatsappActivity" />
+        <activity
+            android:name=".NewsActivity"
+            android:label="HEADLINES"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".wb"
+            android:label="News"
+            android:parentActivityName=".NewsActivity"></activity>
+    </application>
+
+</manifest>
